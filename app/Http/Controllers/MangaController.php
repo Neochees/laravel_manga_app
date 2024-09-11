@@ -13,10 +13,11 @@ class MangaController extends Controller
         return view('mangas.index', compact('mangas'));
     }
 
-    public function show()
+    public function show(Manga $manga)
     {
-        $mangas = Manga::all();
-        return view('show', ['mangas' => $mangas]);
+        return view('mangas.show', [
+            'manga' => $manga,
+        ]);
     }
 
     public function create()
