@@ -24,28 +24,48 @@ class MangaController extends Controller
     {
         return view('mangas.create');
     }
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = request()->validate([
+        $attributes = $request->validate([
             'title' => 'required|max:225|unique:mangas,title',
             'author' => 'required|max:225|unique:mangas,author',
             'rating' => 'required|max:225',
             'description' => 'required|max:225'
         ]);
+
+        Manga::create($attributes);
+
+        return redirect('/')->with('success', 'Manga added!');
     }
+
 
     public function edit(Manga $manga)
     {
         return view('mangas.edit', compact('manga'));
     }
 
-    public function update(Manga $manga)
+    public function update(Request $request, Manga $manga)
     {
 
+        $validatedData = $request->validate([
+            'title' => 'required|max:225|unique:mangas,title,' . $manga->id,
+            'author' => 'required|max:225|unique:mangas,author,' . $manga->id,
+            'rating' => 'required|max:225',
+            'description' => 'required',
+        ]);
+
+        $manga->update($validatedData);
+
+        return redirect('/')->with('success', 'Manga updated successfully!');
     }
+
+
 
     public function destroy(Manga $manga)
     {
+        $manga->delete();
 
+        return redirect()->route('manga.index')
+                         ->with('success', 'Manga deleted!.');
     }
 }

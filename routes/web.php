@@ -8,6 +8,13 @@ Route::get('/', [MangaController::class, 'index']);
 
 Route::get('/manga/{manga}', [MangaController::class, 'show']);
 
-Route::post('/manga', [MangaController::class, 'store']);
+Route::get('/manga/{manga}/edit', [MangaController::class, 'edit']);
 
 Route::patch('/manga/{manga}', [MangaController::class, 'update']);
+
+Route::post('/manga', [MangaController::class, 'store']);
+
+Route::get('/create', [MangaController::class, 'create']);
+
+Route::delete('/manga/{manga}', [MangaController::class, 'destroy']);
+
