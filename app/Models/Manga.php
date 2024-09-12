@@ -13,7 +13,7 @@ class Manga extends Model
         'title',
         'author',
         'description',
-        'genre_',
+        'genre',
         'rating'
     ];
 

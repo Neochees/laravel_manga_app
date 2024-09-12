@@ -28,15 +28,17 @@ class MangaController extends Controller
     {
         $attributes = $request->validate([
             'title' => 'required|max:225|unique:mangas,title',
-            'author' => 'required|max:225|unique:mangas,author',
-            'rating' => 'required|max:225',
-            'description' => 'required|max:225'
+            'author' => 'required|max:225',
+            'genre' => 'required|max:225',
+            'rating' => 'required|max:10',
+            'description' => 'required'
         ]);
 
-        Manga::create($attributes);
+        $user = Manga::create($attributes);
 
         return redirect('/')->with('success', 'Manga added!');
     }
+
 
 
     public function edit(Manga $manga)
