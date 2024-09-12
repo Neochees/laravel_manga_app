@@ -11,12 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mangas', function (Blueprint $table) {
+        Schema::create('genre_manga', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('author');
-            $table->text('description');
-            $table->decimal('rating');
+            $table->integer('manga_id');
+            $table->integer('genre_id');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mangas');
+        Schema::dropIfExists('genre_manga');
     }
 };
