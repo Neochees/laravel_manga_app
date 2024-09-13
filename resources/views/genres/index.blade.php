@@ -23,6 +23,7 @@
 
             </section>
         @endforeach
-        <a href="/create"><button class="rounded-xl text-white bg-blue-500 py-2 px-4">Create+</button></a>
+        <a href="/create"><button class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500">Create+</button></a>
+            <a href="/"><button class="rounded-xl border border-blue-500 text-blue-500 bg-white py-2 px-4 hover:bg-blue-500 hover:text-white mt-2">Back</button></a>
     </main>
 </x-layout>
