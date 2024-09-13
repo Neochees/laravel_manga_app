@@ -14,7 +14,7 @@ class Genre extends Model
         'name',
     ];
 
-    public function manga() : HasMany
+    public function manga()
     {
         return $this->hasMany(Manga::class);
     }

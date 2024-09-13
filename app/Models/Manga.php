@@ -18,9 +18,9 @@ class Manga extends Model
         'rating',
     ];
 
-    public function genre() : HasMany
+    public function genre()
     {
-        return $this->hasMany(Genre::class);
+        return $this->belongsTo(Genre::class);
     }
 
 }

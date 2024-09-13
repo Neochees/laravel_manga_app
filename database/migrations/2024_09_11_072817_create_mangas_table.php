@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('mangas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('genre_id');
             $table->string('title');
             $table->string('author');
             $table->text('description');

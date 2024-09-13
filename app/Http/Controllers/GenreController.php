@@ -7,6 +7,7 @@ use App\Models\Manga;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
+
 {
     /**
      * Display a listing of the resource.
@@ -67,7 +68,6 @@ class GenreController extends Controller
         ]);
 
         $genre->update($validatedData);
-
 
 
         return redirect('/genre')->with('success', 'Genre updated successfully!');

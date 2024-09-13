@@ -5,7 +5,7 @@
             <section class="p-6 bg-gray-100 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-semibold text-gray-800">{{ $manga->title }}</h2>
                 <h5 class="text-lg text-gray-600">{{ $manga->author }}</h5>
-                <a href="/genre"><h6 class="text-sm font-medium text-gray-500">{{ $manga->genre }}</h6></a>
+                <a href="/genre"><h6 class="text-sm font-medium text-gray-500">{{ $manga->genre->name }}</h6></a>
                 <h6 class="text-sm font-medium text-yellow-500">Rating: {{ $manga->rating }}/10</h6>
 
                 <a href="/manga/{{ $manga->id }}" class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500"><button class="mt-10">
