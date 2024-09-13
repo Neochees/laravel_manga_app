@@ -3,7 +3,7 @@
 
         @foreach($genres as $genre)
             <section class="p-6 bg-gray-100 rounded-lg shadow-lg">
-                <h6 class="text-sm font-medium text-gray-500">{{ $genre }}</h6>
+                <h1 class="text-sm font-medium text-gray-500">{{ $genre->genre }}</h1>
                 <h6 class="text-sm font-medium text-yellow-500">Amount: </h6>
                           {{--How many manga are in this genre--}}
                 <a href="/manga/{{ $genre->id }}" class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500"><button class="mt-10">

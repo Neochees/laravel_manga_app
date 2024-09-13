@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Manga;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -12,7 +12,7 @@ class GenreController extends Controller
      */
     public function index()
     {
-        $genres = Manga::get()->all();
+        $genres = Genre::get()->all();
         return view('genres.index', compact('genres'));
     }
 
