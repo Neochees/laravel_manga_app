@@ -68,6 +68,8 @@ class GenreController extends Controller
 
         $genre->update($validatedData);
 
+
+
         return redirect('/genre')->with('success', 'Genre updated successfully!');
     }
 
