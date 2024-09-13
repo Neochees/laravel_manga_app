@@ -21,7 +21,7 @@ class GenreController extends Controller
      */
     public function create()
     {
-        //
+        return view('genres.create');
     }
 
     /**
@@ -35,25 +35,33 @@ class GenreController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Genre $genre)
     {
-        //
+        return view('genres.show', [
+            'genre' => $genre,
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Genre $genre)
     {
-        //
+        return view('genres.edit', compact('genre'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Genre $genre)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255|unique:genres,name,'
+        ]);
+
+        $genre->update($validatedData);
+
+        return redirect('/genre')->with('success', 'Genre updated successfully!');
     }
 
     /**

@@ -14,3 +14,8 @@ Route::get('/create', [MangaController::class, 'create']);
 Route::delete('/manga/{manga}', [MangaController::class, 'destroy']);
 
 Route::get('/genre', [GenreController::class, 'index']);
+Route::get('/genre/{genre}', [GenreController::class, 'show']);
+Route::get('/genre/{genre}/edit', [GenreController::class, 'edit']);
+Route::patch('/genre/{genre}', [GenreController::class, 'update']);
+Route::post('/genre', [GenreController::class, 'store']);
+Route::delete('/genre/{genre}', [GenreController::class, 'destroy']);
