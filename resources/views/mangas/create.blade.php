@@ -3,9 +3,9 @@
         <section class="p-6 bg-gray-100 rounded-lg shadow-lg">
             <h2 class="text-2xl font-semibold text-gray-800">Create Manga</h2>
 
-            <form method="POST" action="/create">
+            <form method="POST" action="/manga/create">
                 @csrf
-
+                @yield('content')
                 <div class="mb-4">
                     <label for="title" class="block text-gray-700">Title:</label>
                     <input type="text" name="title" id="title" value="{{ 'title' }}" required

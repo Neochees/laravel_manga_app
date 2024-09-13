@@ -24,6 +24,6 @@
 
             </section>
         @endforeach
-        <a href="/create"><button class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500">Create+</button></a>
+        <a href="/manga/create"><button class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500">Create+</button></a>
     </main>
 </x-layout>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Genre;
+use App\Models\Manga;
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -29,7 +30,13 @@ class GenreController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $attributes = $request->validate([
+            'name' => 'required|max:225|unique:genres,name',
+        ]);
+
+        $user = Genre::create($attributes);
+
+        return redirect('/genre')->with('success', 'Genre added!');
     }
 
     /**
@@ -67,8 +74,10 @@ class GenreController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Genre $genre)
     {
-        //
+        $genre->delete();
+
+        return redirect()->route('genre.index');
     }
 }
