@@ -21,9 +21,10 @@ class GenreController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Genre $genre)
     {
-        return view('genres.create');
+        $mangas = Manga::all();
+        return view('genres.create', compact('genre', 'mangas'));
     }
 
     /**
