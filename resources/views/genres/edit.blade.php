@@ -13,12 +13,6 @@
                            class="border border-gray-300 rounded p-2 w-full">
                 </div>
 
-{{--                <div class="mb-4">--}}
-{{--                    <label for="description" class="block text-gray-700">Description:</label>--}}
-{{--                    <textarea name="description" id="description" required--}}
-{{--                              class="border border-gray-300 rounded p-2 w-full h-auto">{{ old('description', $genre->description) }}</textarea>--}}
-{{--                </div>--}}
-
                 <button type="submit" class="rounded-xl border border-green-500 text-white bg-green-500 py-2 px-4 hover:bg-white hover:text-green-500">Update</button>
 
             </form>

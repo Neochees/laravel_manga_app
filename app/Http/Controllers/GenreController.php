@@ -45,8 +45,11 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
+        $mangas = $genre->manga()->get();
+
         return view('genres.show', [
-            'genre' => $genre
+            'genre' => $genre,
+            'mangas' => $mangas
         ]);
     }
 

@@ -46,7 +46,8 @@ class MangaController extends Controller
 
     public function edit(Manga $manga)
     {
-        return view('mangas.edit', compact('manga'));
+        $genres = Genre::all();
+        return view('mangas.edit', compact('manga', 'genres'));
     }
 
     public function update(Request $request, Manga $manga)
@@ -57,6 +58,7 @@ class MangaController extends Controller
             'author' => 'required|max:225|unique:mangas,author,' . $manga->id,
             'rating' => 'required|max:225',
             'description' => 'required',
+            'genre_id' => 'required|exists:genres,id'
         ]);
 
         $manga->update($validatedData);

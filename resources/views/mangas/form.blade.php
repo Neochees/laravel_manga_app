@@ -20,22 +20,6 @@
                 </div>
 
                 <div class="mb-4">
-                    <label for="genre" class="block text-gray-700">Genre:</label>
-                    <select name="genre_id" id="genre" required class="border border-gray-300 rounded p-2 w-full">
-                        <option value="">Select a Genre</option>
-
-                        @foreach($genres as $genre)
-                            @if($manga->genre->id == $genre->id)
-                                <option value="{{ $genre->id }}" selected>{{ $genre->name }}</option>
-                            @else
-                                <option value="{{ $genre->id }}">{{ $genre->name }}</option>
-                            @endif
-
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="mb-4">
                     <label for="rating" class="block text-gray-700">Rating:</label>
                     <input type="text" name="rating" id="rating" value="{{ old('rating', $manga->rating) }}" required
                            class="border border-gray-300 rounded p-2 w-full">
