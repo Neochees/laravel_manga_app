@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\createOrUpdateMangaRequest;
 use App\Models\Manga;
 use App\Models\Genre;
 use Illuminate\Http\Request;
@@ -27,17 +28,9 @@ class MangaController extends Controller
         return view('mangas.create', compact('manga', 'genres'));
     }
 
-    public function store(Request $request)
+    public function store(createOrUpdateMangaRequest $request)
     {
-        $attributes = $request->validate([
-            'title' => 'required|max:225|unique:mangas,title',
-            'author' => 'required|max:225',
-            'rating' => 'required|max:10',
-            'description' => 'required',
-            'genre_id' => 'required|exists:genres,id'
-        ]);
-
-        Manga::create($attributes);
+        Manga::create($request->validated());
 
         return redirect('/');
     }
@@ -50,18 +43,10 @@ class MangaController extends Controller
         return view('mangas.edit', compact('manga', 'genres'));
     }
 
-    public function update(Request $request, Manga $manga)
+    public function update(createOrUpdateMangaRequest $request, Manga $manga)
     {
 
-        $validatedData = $request->validate([
-            'title' => 'required|max:225|unique:mangas,title,' . $manga->id,
-            'author' => 'required|max:225|unique:mangas,author,' . $manga->id,
-            'rating' => 'required|max:225',
-            'description' => 'required',
-            'genre_id' => 'required|exists:genres,id'
-        ]);
-
-        $manga->update($validatedData);
+        $manga->update($request->validated());
 
         return redirect('/')->with('success', 'Manga updated successfully!');
     }

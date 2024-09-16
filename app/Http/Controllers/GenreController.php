@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\createOrUpdateGenreRequest;
 use App\Models\Genre;
 use App\Models\Manga;
 use Illuminate\Http\Request;
@@ -30,13 +31,9 @@ class GenreController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(createOrUpdateGenreRequest $request)
     {
-        $attributes = $request->validate([
-            'name' => 'required|max:225|unique:genres,name',
-        ]);
-
-        $genre = Genre::create($attributes);
+        Genre::create($request->validated());
 
         return redirect('/genre')->with('success', 'Genre added!');
     }
@@ -67,11 +64,7 @@ class GenreController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|max:255|unique:genres,name,'
-        ]);
-
-        $genre->update($validatedData);
+        $genre->update($request->validated());
 
 
         return redirect('/genre')->with('success', 'Genre updated successfully!');

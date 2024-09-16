@@ -37,4 +37,4 @@
               class="border border-gray-300 rounded p-2 w-full h-auto">{{ old('description', $manga->description) }}</textarea>
 </div>
 
-<button type="submit" class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500">Update</button>
+<button type="submit" class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500">Done</button>
