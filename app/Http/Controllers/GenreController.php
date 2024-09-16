@@ -35,7 +35,7 @@ class GenreController extends Controller
             'name' => 'required|max:225|unique:genres,name',
         ]);
 
-        $user = Genre::create($attributes);
+        $genre = Genre::create($attributes);
 
         return redirect('/genre')->with('success', 'Genre added!');
     }
@@ -46,7 +46,7 @@ class GenreController extends Controller
     public function show(Genre $genre)
     {
         return view('genres.show', [
-            'genre' => $genre,
+            'genre' => $genre
         ]);
     }
 

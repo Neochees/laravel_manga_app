@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Manga;
+use App\Models\Genre;
 use Illuminate\Http\Request;
 
 class MangaController extends Controller
@@ -22,21 +23,23 @@ class MangaController extends Controller
 
     public function create()
     {
-        return view('mangas.create');
+        $genres = Genre::all();
+        return view('mangas.create', compact('genres'));
     }
+
     public function store(Request $request)
     {
         $attributes = $request->validate([
             'title' => 'required|max:225|unique:mangas,title',
             'author' => 'required|max:225',
-            'genre' => 'required|max:225',
             'rating' => 'required|max:10',
-            'description' => 'required'
+            'description' => 'required',
+            'genre_id' => 'required|exists:genres,id'
         ]);
 
-        $user = Manga::create($attributes);
+        Manga::create($attributes);
 
-        return redirect('/')->with('success', 'Manga added!');
+        return redirect('/');
     }
 
 
