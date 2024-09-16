@@ -7,41 +7,8 @@
                 @csrf
                 @yield('content')
 
-                <div class="mb-4">
-                    <label for="title" class="block text-gray-700">Title:</label>
-                    <input type="text" name="title" id="title" value="{{ 'title' }}" required
-                           class="border border-gray-300 rounded p-2 w-full">
-                </div>
+                @include('mangas.form')
 
-                <div class="mb-4">
-                    <label for="author" class="block text-gray-700">Author:</label>
-                    <input type="text" name="author" id="author" value="{{ 'author' }}" required
-                           class="border border-gray-300 rounded p-2 w-full">
-                </div>
-
-                <div class="mb-4">
-                    <label for="genre" class="block text-gray-700">Genre:</label>
-                    <select name="genre_id" id="genre" required class="border border-gray-300 rounded p-2 w-full">
-                        <option value="">Select a Genre</option>
-                        @foreach($genres as $genre)
-                            <option value="{{ $genre->id }}">{{ $genre->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="mb-4">
-                    <label for="rating" class="block text-gray-700">Rating:</label>
-                    <input type="text" name="rating" id="rating"  required
-                           class="border border-gray-300 rounded p-2 w-full">
-                </div>
-
-                <div class="mb-4">
-                    <label for="description" class="block text-gray-700">Description:</label>
-                    <textarea name="description" id="description" required
-                              class="border border-gray-300 rounded p-2 w-full h-auto"></textarea>
-                </div>
-
-                <button type="submit" class="rounded-xl border border-blue-500 text-white bg-blue-500 py-2 px-4 hover:bg-white hover:text-blue-500">Create</button>
             </form>
 
             <a href="/"><button class="rounded-xl border border-blue-500 text-blue-500 bg-white py-2 px-4 hover:bg-blue-500 hover:text-white mt-2">Back</button></a>

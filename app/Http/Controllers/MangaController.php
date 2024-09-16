@@ -21,10 +21,10 @@ class MangaController extends Controller
         ]);
     }
 
-    public function create()
+    public function create(Manga $manga)
     {
         $genres = Genre::all();
-        return view('mangas.create', compact('genres'));
+        return view('mangas.create', compact('manga', 'genres'));
     }
 
     public function store(Request $request)
